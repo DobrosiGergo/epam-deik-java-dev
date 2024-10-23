@@ -28,5 +28,10 @@ public class MovieCommands {
         movieModelService.updateMovie(movieTitle,genre,time);
         return "You updated the next movie "+movieTitle+"!";
     }
+    @ShellMethod(key = "delete movie",value="You can delete a movie with this command")
+    public String deleteMovie(String movieTitle) throws Exception {
+        movieModelService.deleteMovie(movieTitle);
+        return "You deleted the movie "+movieTitle+"!";
+    }
 
 }

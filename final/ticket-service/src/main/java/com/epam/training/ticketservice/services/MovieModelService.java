@@ -43,4 +43,11 @@ public class MovieModelService {
             throw new Exception("There is no movie currently for this name to be updated!");
         }
     }
+    public void deleteMovie(String movieTitle) throws Exception {
+        if (movieModelRepository.findByMovieTitle(movieTitle).isPresent()){
+            movieModelRepository.delete(movieModelRepository.findByMovieTitle(movieTitle).get());
+        }else{
+            throw new Exception("There are no movie to be deleted!");
+        }
+    }
 }
