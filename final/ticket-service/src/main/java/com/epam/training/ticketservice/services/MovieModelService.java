@@ -33,4 +33,14 @@ public class MovieModelService {
             return movies;
         }
     }
+    public void updateMovie(String movieTitle,String genre,int time) throws Exception {
+        if (movieModelRepository.findByMovieTitle(movieTitle).isPresent()){
+            MovieModel movieModel = movieModelRepository.findByMovieTitle(movieTitle).get();
+            movieModel.setGenre(genre);
+            movieModel.setTime(time);
+            movieModelRepository.save(movieModel);
+        }else{
+            throw new Exception("There is no movie currently for this name to be updated!");
+        }
+    }
 }
