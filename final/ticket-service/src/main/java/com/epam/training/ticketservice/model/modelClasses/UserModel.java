@@ -18,6 +18,13 @@ public class UserModel {
     private String passwd;
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    public UserModel(String username, String passwd, Role roles) {
+        this.username = username;
+        this.passwd = passwd;
+        this.role = roles;
+    }
+
     public enum Role{
         ADMIN
     }
